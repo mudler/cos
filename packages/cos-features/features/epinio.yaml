@@ -25,13 +25,13 @@ stages:
           if [ ! -e "/usr/local/bin/helm" ]; then
             curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
           fi
-     - name: "Setup carrier"
+     - name: "Setup epinio"
        commands:
        - |
-          export IMG_SHA256="b6b345c0a8e700aad02d1dd1a46585e7e40a9a8b2b3947a51f3b45efce30340a"
-          curl -fSL "https://github.com/SUSE/carrier/releases/download/v0.0.4/carrier-linux-amd64" -o "/usr/local/bin/carrier" \
-          && echo "${IMG_SHA256}  /usr/local/bin/carrier" | sha256sum -c - \
-          && chmod a+x "/usr/local/bin/carrier"
+          export IMG_SHA256="e7525bbb417c35702c4ffef52c7c77b67e32c44d581f6916ae351558f494d6d8"
+          curl -fSL "https://github.com/epinio/epinio/releases/download/v0.0.22/epinio-linux-amd64" -o "/usr/local/bin/epinio" \
+          && echo "${IMG_SHA256}  /usr/local/bin/epinio" | sha256sum -c - \
+          && chmod a+x "/usr/local/bin/epinio"
 
-          KUBECONFIG=/etc/rancher/k3s/k3s.yaml CARRIER_CONFIG=/usr/local/carrier.yaml carrier install
+          KUBECONFIG=/etc/rancher/k3s/k3s.yaml EPINIO_CONFIG=/usr/local/epinio.yaml epinio install
 name: "Opinionated platform that runs on Kubernetes, that takes you from App to URL in one step."
