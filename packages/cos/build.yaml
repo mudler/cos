@@ -16,7 +16,7 @@ requires:
 - name: "cos-features"
   category: "system"
   version: ">=0"
-- name: "grub-config"
+- name: "grub2-config"
   category: "system"
   version: ">=0"
 - name: "base-dracut-modules"

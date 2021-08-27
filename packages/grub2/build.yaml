@@ -1,0 +1,23 @@
+requires:
+- name: "base"
+  category: "distro"
+  version: ">=0"
+
+steps:
+{{if eq .Values.name "grub2-config"}}
+- mkdir /etc/cos
+- cp config/grub.cfg config/bootargs.cfg /etc/cos
+{{end}}
+
+{{if eq .Values.name "grub2-artifacts"}}
+- mkdir /grub-artifacts
+  {{if .Values.distribution}}
+    {{if eq .Values.distribution "opensuse"}}
+- cp -rf /usr/share/grub2/* /grub-artifacts
+    {{else}}
+- cp -rf /usr/share/grub/* /grub-artifacts
+    {{end}}
+  {{end}}
+
+package_dir: /grub-artifacts
+{{end}}
