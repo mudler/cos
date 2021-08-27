@@ -26,7 +26,7 @@ EOF
 
 # Create root-tree for COS_RECOVERY
 luet install --system-target root -y system/grub-config
-luet install --system-target root/grub2 -y system/grub-artifacts
+luet install --system-target root/grub2 -y system/grub2-artifacts
 luet install --system-target root/cOS -y recovery/cos-img
 
 # Create a 2GB filesystem for COS_RECOVERY including the contents for root (grub config and squasfs container)

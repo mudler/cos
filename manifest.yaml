@@ -2,12 +2,15 @@ packages:
   rootfs:
   - system/cos
   uefi:
-  - live/systemd-boot
-  - live/boot
+  - live/grub2-efi-image
   isoimage:
-  - live/syslinux
-  - live/boot
+  - live/grub2
+  - live/grub2-efi-image
   - recovery/cos-img
+
+boot_file: "boot/x86_64/loader/eltorito.img"
+boot_catalog: "boot/x86_64/boot.catalog" 
+isohybrid_mbr: "boot/x86_64/loader/boot_hybrid.img"
 
 initramfs:
   kernel_file: "vmlinuz"
@@ -26,4 +29,4 @@ build:
  - selinux/rancher
  - selinux/k3s
  - recovery/cos
- - system/grub-artifacts
+ - system/grub2-artifacts

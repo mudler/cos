@@ -16,7 +16,7 @@ packages:
     name: immutable-rootfs
     version: ">=0"
   - category: system
-    name: grub-config
+    name: grub2-config
     version: ">=0"
   - category: system
     name: cloud-config
@@ -44,7 +44,7 @@ packages:
     name: immutable-rootfs
     version: ">=0"
   - category: system
-    name: grub-config
+    name: grub2-config
     version: ">=0"
   - category: system
     name: cloud-config

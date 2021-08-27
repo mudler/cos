@@ -1,0 +1,23 @@
+packages:
+- name: "grub2"
+  category: "live"
+  version: "0.0.1"
+  description: "Grub2 booloader for live systems"
+
+  # Grub modules list for live images
+  base_mod: "ext2 iso9660 linux echo configfile search_label search_fs_file search search_fs_uuid ls normal gzio png fat gettext font minicmd gfxterm gfxmenu all_video xfs btrfs lvm luks gcry_rijndael gcry_sha256 gcry_sha512 crypto cryptodisk test true loadenv part_gpt part_msdos"
+  bios_mod: "biosdisk vga vbe chain boot"
+  efi_mod: "efi_gop efi_uga linuxefi"
+
+- name: "grub2-efi-image"
+  category: "live"
+  version: "0.0.1"
+  description: "Grub2 booloader EFI image for live systems"
+
+- name: "grub2-artifacts"
+  category: "system"
+  version: "0.0.2"
+
+- name: "grub2-config"
+  category: "system"
+  version: "0.0.10"
