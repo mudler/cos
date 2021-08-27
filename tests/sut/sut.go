@@ -192,14 +192,42 @@ func (s *SUT) Reboot() {
 	s.EventuallyConnects(180)
 }
 
-func (s *SUT) connectToHost(timeout bool) (*ssh.Client, error) {
+func (s *SUT) clientConfig() *ssh.ClientConfig {
 	sshConfig := &ssh.ClientConfig{
 		User:    s.Username,
 		Auth:    []ssh.AuthMethod{ssh.Password(s.Password)},
 		Timeout: 30 * time.Second, // max time to establish connection
 	}
-
 	sshConfig.HostKeyCallback = ssh.InsecureIgnoreHostKey()
+
+	return sshConfig
+}
+
+func (s *SUT) SendFile(src, dst, permission string) error {
+	sshConfig := s.clientConfig()
+	scpClient := scp.NewClientWithTimeout(s.Host, sshConfig, 10*time.Second)
+	defer scpClient.Close()
+
+	if err := scpClient.Connect(); err != nil {
+		return err
+	}
+
+	f, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+
+	defer scpClient.Close()
+	defer f.Close()
+
+	if err := scpClient.CopyFile(f, dst, permission); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *SUT) connectToHost(timeout bool) (*ssh.Client, error) {
+	sshConfig := s.clientConfig()
 
 	client, err := DialWithDeadline("tcp", s.Host, sshConfig, timeout)
 	if err != nil {
@@ -212,7 +240,7 @@ func (s *SUT) connectToHost(timeout bool) (*ssh.Client, error) {
 // GatherLog will try to scp the given log from the machine to a local file
 func (s SUT) GatherLog(logPath string) {
 	fmt.Printf("Trying to get file: %s\n", logPath)
-	clientConfig, _ := auth.PasswordKey(s.Username, s.Password, ssh.InsecureIgnoreHostKey())
+	sshConfig := s.clientConfig()
 	scpClient := scp.NewClientWithTimeout(s.Host, &clientConfig, 10*time.Second)
 
 	err := scpClient.Connect()

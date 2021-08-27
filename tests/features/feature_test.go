@@ -17,6 +17,14 @@ var _ = Describe("cOS Feature tests", func() {
 
 	Context("After install", func() {
 		It("can enable a persistent k3s install", func() {
+
+			s.Command("echo 'COS_FEATURESDIR=/usr/local/features' >> /etc/cos/config")
+			s.Command("mkdir /usr/local/features")
+			s.Command("cp -rf /system/features/vagrant.yaml /usr/local/features")
+
+			err := s.SendFile("../assets/k3s.yaml", "/usr/local/features/k3s.yaml", "0770")
+			Expect(err).ToNot(HaveOccurred())
+
 			out, err := s.Command("cos-feature enable k3s")
 			Expect(err).ToNot(HaveOccurred())
 			Expect(out).Should(ContainSubstring("k3s enabled"))
