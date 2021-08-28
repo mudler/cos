@@ -1,7 +1,7 @@
 packages:
   - name: "cos"
     category: "system"
-    version: 0.6.7+2
+    version: 0.6.7+3
     description: "cOS base image, used to build cOS live ISOs"
     brand_name: "cOS"
     labels:
