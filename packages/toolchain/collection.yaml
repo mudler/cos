@@ -23,7 +23,7 @@ packages:
       autobump.revbump_related: "system/cos recovery/cos recovery/cos-img recovery/cos-squash"
   - name: "luet-makeiso"
     category: "toolchain"
-    version: 0.3.7+1
+    version: "0.3.8"
     upx: false
     fips: false
     labels:
