@@ -9,7 +9,7 @@ packages:
       package.checksum: "6c6a23a146dfecf8fd834689e11da3e3841be3ce624fd5044811c9f95c5fcd17"
   - name: "rancher"
     category: "selinux"
-    version: 0.2.rc1-1+16
+    version: "0.2-rc4.testing.1"
     labels:
       github.repo: "rancher-selinux"
       github.owner: "rancher"
