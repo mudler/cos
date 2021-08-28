@@ -1,7 +1,7 @@
 packages:
   - category: "toolchain"
     name: "luet"
-    version: 0.17.8+3
+    version: 0.17.8+4
     branch: ""
     upx: false
     fips: false
@@ -12,7 +12,7 @@ packages:
       autobump.revbump_related: "system/cos recovery/cos recovery/cos-img recovery/cos-squash"
   - category: "toolchain-fips"
     name: "luet"
-    version: 0.17.8+3
+    version: 0.17.8+4
     branch: ""
     upx: false
     fips: true
@@ -23,7 +23,7 @@ packages:
       autobump.revbump_related: "system/cos recovery/cos recovery/cos-img recovery/cos-squash"
   - name: "luet-makeiso"
     category: "toolchain"
-    version: 0.3.7+1
+    version: 0.3.7+2
     upx: false
     fips: false
     labels:
@@ -32,7 +32,7 @@ packages:
       autobump.revdeps: "true"
   - name: "luet-makeiso"
     category: "toolchain-fips"
-    version: 0.3.7+1
+    version: 0.3.7+2
     upx: false
     fips: true
     labels:
@@ -43,7 +43,7 @@ packages:
     name: "yip"
     upx: false
     fips: true
-    version: 0.9.8+4
+    version: 0.9.8+5
     labels:
       github.repo: "yip"
       github.owner: "mudler"
@@ -53,7 +53,7 @@ packages:
     name: "yip"
     upx: false
     fips: false
-    version: 0.9.8+4
+    version: 0.9.8+5
     labels:
       github.repo: "yip"
       github.owner: "mudler"

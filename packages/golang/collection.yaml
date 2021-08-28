@@ -1,7 +1,7 @@
 packages:
   - name: "golang"
     category: "build"
-    version: "1.17"
+    version: 1.17+1
     base_url: https://golang.org/dl
     hidden: true # No need to make it installable for now
     labels:
@@ -19,7 +19,7 @@ packages:
       package.checksum: "6bf89fc4f5ad763871cf7eac80a2d594492de7a818303283f1366a7f6a30372d"
   - name: "golang-fips"
     category: "build"
-    version: "1.16.7b7"
+    version: 1.16.7b7+1
     base_url: https://go-boringcrypto.storage.googleapis.com
     hidden: true # No need to make it installable for now
     labels:
