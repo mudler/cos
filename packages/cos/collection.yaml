@@ -17,7 +17,7 @@ packages:
       autobump.revbump_related: "recovery/cos-img recovery/cos-squash"
   - name: "cos-container"
     category: "system"
-    version: "0.6.7+1"
+    version: 0.6.7+2
     brand_name: "cOS"
     description: "cOS container image, used to build cOS derivatives from scratch"
     labels:
