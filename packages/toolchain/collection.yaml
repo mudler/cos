@@ -12,7 +12,7 @@ packages:
       autobump.revbump_related: "system/cos recovery/cos recovery/cos-img recovery/cos-squash"
   - category: "toolchain-fips"
     name: "luet"
-    version: 0.17.8+3
+    version: 0.17.8+4
     branch: ""
     upx: false
     fips: true
